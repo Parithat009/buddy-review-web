@@ -1,8 +1,7 @@
 import React from 'react'
-import router from 'next/router';
 import { observer } from 'mobx-react-lite'
 import { useFela } from 'react-fela';
-import { useHomeIdStore, State } from '../HomeIdViewStore'
+import { useHomeIdStore } from '../HomeIdViewStore'
 import { UIColor } from '../../../util/UISystem';
 
 const _HomeIdFlatList: React.FC = () => {
