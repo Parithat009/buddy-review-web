@@ -16,9 +16,6 @@ const AuthWidget: React.FC = () => {
     }
   }
 
-  console.log('AuthWidget');
-  
-
   React.useEffect(() => {
     verifyAuth()
   }, [router])

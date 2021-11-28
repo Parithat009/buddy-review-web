@@ -1,6 +1,5 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import { toJS } from 'mobx'
 import { useRouter } from 'next/router'
 import { AppMngReponseError } from '../../util/AppMngReponseError'
 import { useHomeIdStore } from './HomeIdViewStore'
@@ -25,9 +24,6 @@ const _HomeIdViewPage: React.FC = () => {
   React.useEffect(() => {
     handleRetrieveRestauraunt()
   }, [router?.query?.id])
-
-  console.log(toJS(viewStore?.restaurauntLoadable));
-
 
   if (!router?.query?.id) return null
   return (
