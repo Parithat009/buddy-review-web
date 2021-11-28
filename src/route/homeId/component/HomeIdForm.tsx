@@ -11,8 +11,8 @@ const _HomeIdForm: React.FC = () => {
   const viewStore = useHomeIdStore
   const styles = useStyleSheet()
 
-  const handleReserve = () => {
-    viewStore.reserve(router?.query?.id as string)
+  const handleReserve = async (): Promise<void> => {
+    await viewStore.reserve(router?.query?.id as string)
 
     if (viewStore.status === 'error') {
       AppMngReponseError.verify(viewStore?.responseError)
@@ -25,6 +25,7 @@ const _HomeIdForm: React.FC = () => {
   }
 
   const goToHome = (): void => {
+    viewStore?.resetState()
     router.push('/')
   }
 

@@ -16,14 +16,16 @@ const _SigninViewPage: React.FC = () => {
     await viewStore.submit()
 
     if (viewStore.status === 'success') {
-      router.push('/')
       viewStore.setStatus('default')
+      viewStore?.resetState()
+      router.push('/')
     }
   }
 
   const goToSignup = (): void => {
     router.push('/signup')
-    viewStore.setStatus('default')
+    viewStore?.setStatus('default')
+    viewStore?.resetState()
   }
 
   const handleFocus = (key: keyof State): void => {
@@ -39,6 +41,7 @@ const _SigninViewPage: React.FC = () => {
           type='text'
           label='Username'
           placeholder='Enter username ...'
+          value={viewStore?.state?.username}
           validate={viewStore.state.isUsernameInvalid && 'Please enter username' || ''}
           onChange={(value) => viewStore.setState('username', value)}
           onFocus={() => handleFocus('isUsernameInvalid')}
@@ -47,6 +50,7 @@ const _SigninViewPage: React.FC = () => {
           type='password'
           label='Password'
           placeholder='Enter password ...'
+          value={viewStore?.state?.password}
           validate={viewStore.state.isPasswordInvalid && 'Please enter password' || ''}
           onChange={(value) => viewStore.setState('password', value)}
           onFocus={() => handleFocus('isPasswordInvalid')}

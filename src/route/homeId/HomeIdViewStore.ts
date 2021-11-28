@@ -43,6 +43,10 @@ class HomeIdViewStore {
     this.state[name] = value
   }
 
+  resetState() {
+    this.state = initialState
+  }
+
   setStatus(value: AppTypes.Status) {
     this.status = value
   }

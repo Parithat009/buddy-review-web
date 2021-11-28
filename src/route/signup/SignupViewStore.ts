@@ -29,6 +29,13 @@ class SignupViewStore {
     this.state[name] = value
   }
 
+  resetState() {
+    this.setState('username', '')
+    this.setState('password', '')
+    this.setState('isUsernameInvalid', false)
+    this.setState('isPasswordInvalid', false)
+  }
+
   setStatus(value: AppTypes.Status) {
     this.status = value
   }

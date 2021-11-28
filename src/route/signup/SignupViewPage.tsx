@@ -16,8 +16,9 @@ const _SignUpViewPage: React.FC = () => {
     await viewStore.submit()
 
     if (viewStore.status === 'success') {
+      viewStore?.setStatus('default')
+      viewStore?.resetState()
       router.push('/signin')
-      viewStore.setStatus('default')
     }
   }
 
@@ -27,6 +28,7 @@ const _SignUpViewPage: React.FC = () => {
   }
 
   const goToSignin = () => {
+    viewStore?.resetState()
     router.push('/signin')
   }
 
@@ -37,6 +39,7 @@ const _SignUpViewPage: React.FC = () => {
         <Input
           type='text'
           label='Username'
+          value={viewStore?.state?.username}
           placeholder='Enter username ...'
           validate={viewStore.state.isUsernameInvalid && 'Please enter username' || ''}
           onChange={(value) => viewStore.setState('username', value)}
@@ -45,6 +48,7 @@ const _SignUpViewPage: React.FC = () => {
         <Input
           type='password'
           label='Password'
+          value={viewStore?.state?.password}
           placeholder='Enter password ...'
           validate={viewStore.state.isPasswordInvalid && 'Please enter password' || ''}
           onChange={(value) => viewStore.setState('password', value)}
