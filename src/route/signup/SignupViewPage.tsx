@@ -26,6 +26,10 @@ const _SignUpViewPage: React.FC = () => {
     viewStore.setState(key, false)
   }
 
+  const goToSignin = () => {
+    router.push('/signin')
+  }
+
   return (
     <LayoutDefault>
       <SignupContainer>
@@ -51,6 +55,9 @@ const _SignUpViewPage: React.FC = () => {
           messageError={viewStore.status === 'error' && '*** SIGN UP FAILED ***' || ''}
         >
           SIGN UP
+        </Button>
+        <Button onClick={goToSignin}>
+          Go To Sign In
         </Button>
       </SignupContainer>
     </LayoutDefault>

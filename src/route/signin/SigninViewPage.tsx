@@ -23,6 +23,7 @@ const _SigninViewPage: React.FC = () => {
 
   const goToSignup = (): void => {
     router.push('/signup')
+    viewStore.setStatus('default')
   }
 
   const handleFocus = (key: keyof State): void => {
