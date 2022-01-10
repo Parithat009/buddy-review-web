@@ -9,6 +9,7 @@ import TitlePage from '../../component/TitlePage'
 import Input from '../../component/Input'
 import HomeFlatList from './component/HomeFlatList'
 import HomeFlatListItem from './component/HomeFlatListItem'
+import axios from 'axios'
 
 const _HomeViewPage: React.FC = () => {
   const styles = useStyleSheet()
@@ -29,8 +30,18 @@ const _HomeViewPage: React.FC = () => {
     viewStore?.setRestaurauntSearch(filter)
   }
 
+  const onRetrieve = async() => {
+    try {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+      console.log(response);
+    } catch (error) {
+      
+    }
+  }
+
   React.useEffect(() => {
-    handleRetrieveRestauraunt()
+    // handleRetrieveRestauraunt()
+    onRetrieve()
   }, [])
 
   React.useEffect(() => {

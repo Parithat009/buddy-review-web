@@ -139,7 +139,7 @@ class HomeIdViewStore {
     })
 
     const sortTime = sortDate?.map(item => item?.sort((prev, cur) => {
-      return new Date(`${prev?.date} ${prev?.timeStart}`) - new Date(`${cur?.date} ${cur?.timeStart}`)
+      return new Date(`${prev?.date} ${prev?.timeStart}`).valueOf() - new Date(`${cur?.date} ${cur?.timeStart}`).valueOf()
       // return prev.time.localeCompare(cur.time)
     }))
 
